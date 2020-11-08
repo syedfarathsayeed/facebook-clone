@@ -41,15 +41,15 @@ export const useSignInCardStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.light,
     fontWeight: "bolder",
     fontSize: "18px",
-    "&:hover":{
-      background: darken(theme.palette.primary.main, 0.1)
-    }
+    "&:hover": {
+      background: darken(theme.palette.primary.main, 0.1),
+    },
   },
   coloredButton: {
     background: "#42B72A",
-    "&:hover":{
-      background: darken("#42B72A", 0.1)
-    }
+    "&:hover": {
+      background: darken("#42B72A", 0.1),
+    },
   },
   divider: {
     background: "lightgrey",
@@ -90,41 +90,41 @@ export const useLogoComponentStyles = makeStyles((theme) => ({
     lineHeight: "28px",
     fontWeight: 500,
     color: "#1c1e21",
-    wordSpacing: 1.2
+    wordSpacing: 1.2,
   },
 }));
 
 export const useOutlineStyles = makeStyles((theme) => {
-  const borderColor = 'rgba(0, 0, 0, 0.23)';
-  return ({
-      root: {
-          position: 'relative',
-          borderRadius: 5,
-          caretColor: theme.palette.primary.main,
-          '& $notchedOutline': {
-              borderColor,
-          },
-          '&:hover:not($disabled):not($focused):not($error) $notchedOutline': {
-              borderColor,
-              '@media (hover: none)': {
-                  borderColor,
-              },
-          },
-          '&$focused $notchedOutline': {
-              borderColor: theme.palette.primary.main,
-              boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.1rem`,
-              borderWidth: 1,
-          },
-          '&$error $notchedOutline': {
-              borderColor: theme.palette.error.main,
-          },
-          '&$disabled $notchedOutline': {
-              borderColor: theme.palette.action.disabled,
-          },
+  const borderColor = "rgba(0, 0, 0, 0.23)";
+  return {
+    root: {
+      position: "relative",
+      borderRadius: 5,
+      caretColor: theme.palette.primary.main,
+      "& $notchedOutline": {
+        borderColor,
       },
-      focused: {},
-      disabled: {},
-      error: {},
-      notchedOutline: {}
-  })
+      "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+        borderColor,
+        "@media (hover: none)": {
+          borderColor,
+        },
+      },
+      "&$focused $notchedOutline": {
+        borderColor: theme.palette.primary.main,
+        boxShadow: `${fade(theme.palette.primary.main, 0.25)} 0 0 0 0.1rem`,
+        borderWidth: 1,
+      },
+      "&$error $notchedOutline": {
+        borderColor: theme.palette.error.main,
+      },
+      "&$disabled $notchedOutline": {
+        borderColor: theme.palette.action.disabled,
+      },
+    },
+    focused: {},
+    disabled: {},
+    error: {},
+    notchedOutline: {},
+  };
 });
