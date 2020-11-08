@@ -1,12 +1,13 @@
-import React from 'react';
+import { MuiThemeProvider } from "@material-ui/core";
+import React from "react";
+import SignIn from "./pages/Login/SignIn";
+import theme from "./resources/theme";
 
 function App() {
   return (
-    <div className="App">
-      <h1>
-        Lets build facebook clone
-      </h1>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <SignIn />
+    </MuiThemeProvider>
   );
 }
 
