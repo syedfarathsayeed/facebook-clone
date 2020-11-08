@@ -1,4 +1,4 @@
-import { fade, makeStyles } from "@material-ui/core/styles";
+import { darken, fade, makeStyles } from "@material-ui/core/styles";
 
 export const useSignInStyles = makeStyles((theme) => ({
   root: {
@@ -41,9 +41,15 @@ export const useSignInCardStyles = makeStyles((theme) => ({
     color: theme.palette.secondary.light,
     fontWeight: "bolder",
     fontSize: "18px",
+    "&:hover":{
+      background: darken(theme.palette.primary.main, 0.1)
+    }
   },
   coloredButton: {
     background: "#42B72A",
+    "&:hover":{
+      background: darken("#42B72A", 0.1)
+    }
   },
   divider: {
     background: "lightgrey",
