@@ -1,5 +1,6 @@
 import React from "react"
-import Appbar from "../../components/Appbar/Appbar"
+import Appbar from "../../components/Appbar"
+import Sidebar from "../../components/Sidebar"
 
 
 const Homepage = () => {
@@ -7,6 +8,9 @@ const Homepage = () => {
     return (
         <>
             <Appbar />
+            <main>
+                <Sidebar />
+            </main>
         </>
     )
 }
