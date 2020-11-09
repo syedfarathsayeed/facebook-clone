@@ -10,5 +10,8 @@ export default createMuiTheme({
       main: "#E4E6EB",
       light: "white",
     },
+    background: {
+      default: "#edf0f5",
+    },
   },
 });
