@@ -2,12 +2,8 @@ import { makeStyles } from "@material-ui/core";
 
 export const useSidebarStyles = makeStyles((theme) => {
   return {
-    avatar: {
-      width: 28,
-      height: 28,
-    },
-    listItem: {
-      minWidth: 38,
+    listItemIcon: {
+      minWidth: 45,
     },
     listItemText: {
       fontSize: 15,
@@ -15,8 +11,13 @@ export const useSidebarStyles = makeStyles((theme) => {
       fontFamily:
         "system-ui, -apple-system, BlinkMacSystemFont, '.SFNSText-Regular', sans-serif;",
     },
-    list:{
-        maxWidth: 350
-    }
+    list: {
+      maxWidth: 340,
+      marginRight: 120
+    },
+    listButton: {
+      borderRadius: 10,
+      padding: theme.spacing(2),
+    },
   };
 });

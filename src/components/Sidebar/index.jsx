@@ -1,5 +1,6 @@
 import React from "react"
-import { Avatar, List, ListItem as MUIListItem, ListItemIcon, ListItemText } from "@material-ui/core"
+import { List, ListItem as MUIListItem, ListItemIcon, ListItemText } from "@material-ui/core"
+import Avatar from "../Avatar"
 import CovidIcon from "../../resources/icons/covidIcon.png"
 import Friends from "../../resources/icons/friends.png"
 import Groups from "../../resources/icons/group.png"
@@ -14,7 +15,7 @@ import Events from "../../resources/icons/events.png"
 import ProfilePic from "../../resources/profile.jpg"
 import { useSidebarStyles } from "./index_styles"
 
-const getIcon = (url) => <img src={url} width={28} height={28} alt={url} />
+const getIcon = (url) => <img src={url} style={{marginLeft: 0, paddingLeft: 0}} width={34} height={34} alt={url} />
 
 const menuItems = [
     {
@@ -68,8 +69,8 @@ const ListItem = (props) => {
     const classes = useSidebarStyles()
     const { title, icon } = props
     return (
-        <MUIListItem button>
-            <ListItemIcon className={classes.listItem}>
+        <MUIListItem button className={classes.listButton}>
+            <ListItemIcon className={classes.listItemIcon}>
                 {icon}
             </ListItemIcon>
             <ListItemText primary={title} classes={{ primary: classes.listItemText }} />
@@ -81,7 +82,7 @@ const Sidebar = () => {
     const classes = useSidebarStyles()
     return (
         <List component="nav" className={classes.list}>
-            <ListItem title={"Syed Farath Sayeed"} icon={<Avatar alt="Profile" src={ProfilePic} className={classes.avatar} />} />
+            <ListItem title={"Syed Farath Sayeed"} icon={<Avatar src={ProfilePic} />} />
             {menuItems.map((item, index) => <ListItem key={index} title={item.title} icon={item.icon} />)}
         </List>
     )
