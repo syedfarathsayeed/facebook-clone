@@ -101,6 +101,9 @@ export const useAppbarStyles = makeStyles((theme) => {
       width: "100%",
       height: 56,
       paddingLeft: theme.spacing(2),
+      position: "fixed",
+      top: 0,
+      zIndex: theme.zIndex.appBar
     },
   };
 });

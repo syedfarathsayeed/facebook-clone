@@ -5,6 +5,7 @@ export const useHomepageStyles = makeStyles((theme) => {
     root:{
         padding: "10px 5px 10px 5px",
         display: "flex",
+        marginTop: 56
     }
   })
 })
