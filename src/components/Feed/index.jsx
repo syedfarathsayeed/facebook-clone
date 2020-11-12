@@ -1,5 +1,7 @@
 import React from "react"
 import Story from "./Story"
+import AddPost from "./AddPost"
+import Post from "./Post"
 import { useFeedStyles } from "./index_styles"
 
 const storyItems = [
@@ -34,8 +36,15 @@ const storyItems = [
 const Feed = () => {
     const classes = useFeedStyles()
     return (
-        <div className={classes.storyContainer}>
-            {storyItems.map(item => (<Story image={item.image} title={item.title} profileUrl={item.profileUrl} />))}
+        <div className={classes.feed}>
+            <div className={classes.storyContainer}>
+                {storyItems.map(item => (<Story key={item.title}
+                    image={item.image}
+                    title={item.title}
+                    profileUrl={item.profileUrl} />))}
+            </div>
+            <AddPost />
+            <Post />
         </div>
     )
 }
