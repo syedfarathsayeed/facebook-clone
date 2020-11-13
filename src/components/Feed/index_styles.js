@@ -45,6 +45,7 @@ export const useFeedStyles = makeStyles((theme) => {
       display: "flex",
       alignItems: "center",
       flexDirection: "column",
+      marginRight: 95
     },
   };
 });
@@ -81,7 +82,7 @@ export const useAddPostStyles = makeStyles((theme) => {
     root: {
       padding: "10px 15px 10px 15px",
       marginTop: theme.spacing(4),
-      width: 480,
+      width: 540,
       borderRadius: 10,
     },
     message: {
@@ -119,7 +120,7 @@ export const useButtonStyles = makeStyles((theme) => {
     button: {
       background: "none",
       height: 40,
-      width: 160,
+      width: 200,
       borderRadius: 10,
       textTransform: "none",
       color: "#65676b",
@@ -133,7 +134,7 @@ export const usePostStyles = makeStyles((theme) => {
   return {
     post: {
       marginTop: theme.spacing(4),
-      width: 510,
+      width: 570,
       borderRadius: 10,
       marginBottom: theme.spacing(2)
     },
