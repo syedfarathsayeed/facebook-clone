@@ -44,7 +44,13 @@ const Feed = () => {
                     profileUrl={item.profileUrl} />))}
             </div>
             <AddPost />
-            <Post />
+            <Post message={"Yayyyyy!!! This is my first post"}
+                imageUrl={"https://images.unsplash.com/photo-1542038784456-1ea8e935640e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&w=1000&q=80"}
+                username={"Syed Shad"}
+                date={"9th November at 14:30."}
+                likes={36}
+                comments={36}
+                shares={20} />
         </div>
     )
 }

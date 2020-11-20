@@ -1,7 +1,7 @@
-import { Button, CardMedia, Paper, Typography } from "@material-ui/core"
-import React from "react"
+import { Button, Typography } from "@material-ui/core";
 import YouTubeIcon from '@material-ui/icons/YouTube';
-import { useAdsStyles } from "./index_styles"
+import React from "react";
+import { useAdsStyles } from "./index_styles";
 
 const AdsBar = () => {
     const classes = useAdsStyles()
@@ -20,6 +20,7 @@ const AdsBar = () => {
             </div>
             <div className={classes.videos}>
                 <iframe width="300"
+                    title="forest"
                     height="200"
                     src="https://www.youtube.com/embed/64l1ONvdC2s"
                     frameborder="0"
@@ -27,6 +28,7 @@ const AdsBar = () => {
                     allowfullscreen />
 
                 <iframe width="300"
+                    title="malta"
                     height="200"
                     src="https://www.youtube.com/embed/8jqXkf1IJ8w"
                     frameborder="0"
