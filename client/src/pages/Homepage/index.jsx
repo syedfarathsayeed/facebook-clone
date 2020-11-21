@@ -20,10 +20,3 @@ const Homepage = () => {
 }
 
 export default Homepage
-
-/**
- * App bar
- * Navigation menu
- * Posts feed
- * side bar
- */
