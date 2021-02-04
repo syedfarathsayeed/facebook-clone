@@ -128,3 +128,134 @@ export const useOutlineStyles = makeStyles((theme) => {
     notchedOutline: {},
   };
 });
+
+export const useSignUpStyles = makeStyles((theme) => {
+  return {
+    paper: {
+      maxWidth: 432,
+    },
+    dialogTitle: {
+      padding: "10px 5px 10px 15px",
+    },
+    dialogHeader: {
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+    title: {
+      fontSize: 32,
+      marginBottom: 0,
+      color: "#1c1e21",
+      fontWeight: 600,
+      fontFamily: "SFProDisplay-Bold, Helvetica, Arial, sans-serif",
+    },
+    subtitle: {
+      color: "#606770",
+    },
+    content: {
+      padding: theme.spacing(3),
+    },
+    firstname: {
+      marginRight: 13,
+    },
+    smallTitle: {
+      fontSize: 12,
+      color: "#606770",
+      margin: 2,
+    },
+    customSelect: {
+      marginRight: theme.spacing(2),
+    },
+    radioButtons: {
+      display: "flex",
+      alignItems: "center",
+      "&>*:not(:last-child)": {
+        marginRight: theme.spacing(2),
+      },
+    },
+    coloredButton: {
+      background: "#42B72A",
+      "&:hover": {
+        background: darken("#42B72A", 0.1),
+      },
+    },
+    button: {
+      height: 36,
+      width: 194,
+      margin: "25%",
+      marginTop: theme.spacing(5),
+      marginBottom: theme.spacing(2),
+      padding: theme.spacing(3),
+      textTransform: "capitalize",
+      color: theme.palette.secondary.light,
+      fontWeight: "bolder",
+      fontSize: "18px",
+      "&:hover": {
+        background: darken(theme.palette.primary.main, 0.1),
+      },
+    },
+  };
+});
+
+export const useSignUpOutlineStyles = makeStyles((theme) => {
+  const borderColor = "rgba(0, 0, 0, 0.23)";
+  return {
+    root: {
+      position: "relative",
+      borderRadius: 5,
+      height: 40,
+      marginBottom: theme.spacing(2),
+      minWidth: 194,
+      background: "#f2f3f4",
+      "& $notchedOutline": {
+        borderColor,
+      },
+      "&:hover:not($disabled):not($focused):not($error) $notchedOutline": {
+        borderColor,
+        "@media (hover: none)": {
+          borderColor,
+        },
+      },
+      "&$focused $notchedOutline": {
+        borderColor,
+        borderWidth: 0.5,
+      },
+      "&$error $notchedOutline": {
+        borderColor: theme.palette.error.main,
+      },
+      "&$disabled $notchedOutline": {
+        borderColor: theme.palette.action.disabled,
+      },
+    },
+    focused: {},
+    disabled: {},
+    error: {},
+    notchedOutline: {},
+  };
+});
+
+export const useGenderStyles = makeStyles((theme) => {
+  return {
+    radioContainer: {
+      border: "0.5px solid rgba(0, 0, 0, 0.23)",
+      borderRadius: 4,
+      height: 18,
+      width: 115,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "space-between",
+      padding: theme.spacing(2),
+      paddingRight: 0,
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
+    label: {
+      color: "black",
+      textTransform: "capitalize",
+      "&:hover": {
+        cursor: "pointer",
+      },
+    },
+  };
+});

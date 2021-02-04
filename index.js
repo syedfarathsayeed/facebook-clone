@@ -6,7 +6,7 @@ import bodyParser from "body-parser";
 import multer from "multer";
 import gridFsStorage from "multer-gridfs-storage";
 import Grid from "gridfs-stream";
-import mongoPosts from "./postModel";
+import mongoPosts from "./postModel.js";
 
 Grid.mongo = mongoose.mongo;
 

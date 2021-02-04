@@ -48,13 +48,14 @@ export const createUserProfileDocument = async (authUser, otherProps) => {
   const snapshot = await userReference.get()
 
   if (!snapshot.exists) {
-    const { displayName, email, phoneNumber } = authUser
+    const { displayName, email, dob, gender } = authUser
     const creationDate = new Date()
     try {
       await userReference.set({
         displayName,
         email,
-        phoneNumber,
+        dob,
+        gender,
         creationDate,
         ...otherProps
       })
