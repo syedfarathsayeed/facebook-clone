@@ -69,6 +69,18 @@ export const useSignInCardStyles = makeStyles((theme) => ({
     fontWeight: "bold",
     color: theme.palette.primary.main,
   },
+  buttonProgress: {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    marginTop: -12,
+    marginLeft: -12,
+  },
+  wrapper: {
+    width: '100%',
+    margin: theme.spacing(1),
+    position: 'relative',
+  },
 }));
 
 export const useLogoComponentStyles = makeStyles((theme) => ({

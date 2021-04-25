@@ -1,10 +1,12 @@
-import { Button, Divider, Paper, TextField, Typography } from "@material-ui/core"
+import { Button, Divider, Paper, TextField, Typography, CircularProgress } from "@material-ui/core"
 import clsx from "clsx"
 import React from "react"
 import facebookLogo from "../../resources/facebook.svg"
 import SignUp from "./SignUp"
-import { auth, createUserProfileDocument } from "../../firebase/firebaseUtils"
+import { auth, createUserProfileDocument, useFirebase } from "../../firebase/firebaseUtils"
 import { useLogoComponentStyles, useOutlineStyles, useSignInCardStyles, useSignInStyles } from "./index_styles"
+import { useHistory } from "react-router-dom"
+import { useToken } from "../../cookies"
 
 const OutlineTextField = (props) => {
     const classes = useOutlineStyles()
@@ -18,10 +20,13 @@ const OutlineTextField = (props) => {
 }
 
 const SignInCard = () => {
-
+    const history = useHistory()
     const classes = useSignInCardStyles()
+    const {login} = useFirebase()
+    const {setToken} = useToken()
     const [user, setUser] = React.useState({ email: "", password: "" })
     const [openCreateDialog, setOpenCreateDialog] = React.useState(false)
+    const [loading, setLoading] = React.useState(false)
 
     const handleUserChange = (e) => {
         const updatedUser = {
@@ -49,6 +54,25 @@ const SignInCard = () => {
         }
     }
 
+    const handleSignIn = async () => {
+        setLoading(true)
+        try {
+            const res = await login(user.email, user.password)
+            setToken(res.user.refreshToken)
+            history.push("/home")
+        } catch (e) {
+            alert(e)
+        } finally {
+            setLoading(false)
+        }
+    }
+
+    const handleKeyDown = (event) => {
+        if (event.key === "Enter") {
+            handleSignIn()
+        }
+    }
+
     return (
         <div>
             <Paper className={classes.paper}>
@@ -58,6 +82,7 @@ const SignInCard = () => {
                     onChange={handleUserChange}
                     placeholder="Email"
                     fullWidth
+                    onKeyDown={handleKeyDown}
                 />
                 <OutlineTextField
                     name="password"
@@ -66,13 +91,19 @@ const SignInCard = () => {
                     placeholder={"Password"}
                     fullWidth
                     type="password"
+                    onKeyDown={handleKeyDown}
                 />
-                <Button variant="contained"
-                    fullWidth
-                    color="primary"
-                    className={classes.button}>
-                    Log In
+                <div className={classes.wrapper}>
+                    <Button variant="contained"
+                        fullWidth
+                        color="primary"
+                        onClick={handleSignIn}
+                        disabled={loading}
+                        className={classes.button}>
+                        Log In
                     </Button>
+                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                </div>
                 <div className={classes.typography}>Not a member?</div>
                 <Divider className={classes.divider} />
                 <Button variant="contained"

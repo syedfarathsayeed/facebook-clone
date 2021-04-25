@@ -1,8 +1,5 @@
 import React from "react"
-import Appbar from "../../components/Appbar"
-import Sidebar from "../../components/Sidebar"
-import Feed from "../../components/Feed"
-import AdsBar from "../../components/AdsBar"
+import {Appbar, Sidebar, Feed, AdsBar} from "../../components"
 import { useHomepageStyles } from "./index_styles"
 
 const Homepage = () => {

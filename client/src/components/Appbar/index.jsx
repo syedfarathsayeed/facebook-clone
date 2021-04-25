@@ -3,19 +3,22 @@ import {
     Tabs, TextField, Tooltip as MUITooltip, Typography
 } from "@material-ui/core";
 import {
-    Add as AddIcon, Home as HomeIcon, OndemandVideoOutlined as WatchIcon, Search as SearchIcon,
+    Add as AddIcon, ExitToApp as LogoutIcon, Home as HomeIcon,
+    OndemandVideoOutlined as WatchIcon, Search as SearchIcon,
     StorefrontOutlined as MarketPlaceIcon, SupervisedUserCircleOutlined as GroupsIcon
 } from "@material-ui/icons";
 import NotificationIcon from "mdi-material-ui/Bell";
 import GamingIcon from 'mdi-material-ui/FacebookGaming';
 import MessengerIcon from 'mdi-material-ui/FacebookMessenger';
-import MenuDownIcon from "mdi-material-ui/MenuDown";
 import React from "react";
 import FacebookLogo from "../../resources/f_logo.png";
 import ProfilePic from "../../resources/profile.jpg";
+import {useToken} from "../../cookies"
 import {
-    useActionBarStyles, useIconButtonStyles, useTabsStyles,
-    useSearchBarStyles, useTooltipStyles, useAppbarStyles, useTabStyles
+    useActionBarStyles,
+    useAppbarStyles, useIconButtonStyles,
+    useSearchBarStyles, useTabsStyles,
+    useTabStyles, useTooltipStyles
 } from "./index.styles";
 
 const SearchBar = () => {
@@ -101,6 +104,11 @@ const TabsBar = () => {
 
 const ActionsBar = () => {
     const classes = useActionBarStyles()
+
+    const {removeToken} = useToken()
+
+    const handleLogout = () => removeToken()
+    
     return (
         <div className={classes.actions}>
             <div className={classes.avatar}>
@@ -116,8 +124,8 @@ const ActionsBar = () => {
             <IconButton title={"Notifications"}>
                 <NotificationIcon />
             </IconButton>
-            <IconButton title={"Account"}>
-                <MenuDownIcon />
+            <IconButton title={"Logout"} onClick={handleLogout}>
+                <LogoutIcon />
             </IconButton>
         </div>
     )

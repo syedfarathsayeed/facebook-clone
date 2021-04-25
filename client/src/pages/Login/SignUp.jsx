@@ -1,4 +1,4 @@
-import { Button, Dialog, DialogContent, DialogTitle, FormControl, FormLabel, IconButton, InputBase, Radio, Select, TextField, Typography, withStyles } from "@material-ui/core";
+import { Button, CircularProgress, Dialog, DialogContent, DialogTitle, FormControl, FormLabel, IconButton, InputBase, Radio, Select, TextField, Typography, withStyles } from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
 import moment from "moment";
 import React from "react";
@@ -105,6 +105,7 @@ const SignUp = (props) => {
     const { open, onClose, onClick } = props
     const classes = useSignUpStyles()
     const [userDetails, setUserDetails] = React.useState(initialUserDetails)
+    const [loading, setLoading] = React.useState(false)
 
     const handleChange = (event) => {
         const { name, value } = event.target
@@ -122,18 +123,24 @@ const SignUp = (props) => {
     }
 
     const handleSignUpClick = async () => {
-        const { firstName, surname, email, day, month, year, gender, password } = userDetails
-        const userToSend = {
-            displayName: `${userDetails.firstName} ${userDetails.surname}`,
-            firstName,
-            surname,
-            email,
-            dob: `${day}-${month}-${year}`,
-            gender,
-            password
+        try {
+            const { firstName, surname, email, day, month, year, gender, password } = userDetails
+            const userToSend = {
+                displayName: `${userDetails.firstName} ${userDetails.surname}`,
+                firstName,
+                surname,
+                email,
+                dob: `${day}-${month}-${year}`,
+                gender,
+                password
+            }
+            await onClick(userToSend)
+            setUserDetails(initialUserDetails)
+        } catch (error) {
+            alert(error)
+        } finally {
+            setLoading(false)
         }
-        await onClick(userToSend)
-        setUserDetails(initialUserDetails)
     }
 
     return (
@@ -209,12 +216,15 @@ const SignUp = (props) => {
                         onChange={handleChange}
                         onClick={() => handleClick("other")} />
                 </div>
-                <Button
-                    variant="contained"
-                    className={clsx(classes.coloredButton, classes.button)}
-                    onClick={handleSignUpClick}>
-                    Sign Up
-                </Button>
+                <div className={classes.wrapper}>
+                    <Button variant="contained"
+                        onClick={handleSignUpClick}
+                        disabled={loading}
+                        className={clsx(classes.coloredButton, classes.button)}>
+                        Sign Up
+                    </Button>
+                    {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
+                </div>
             </DialogContent>
         </Dialog>
     )
